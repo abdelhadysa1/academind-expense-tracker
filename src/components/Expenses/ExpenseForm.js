@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import './ExpenseForm.css'
 
-const ExpenseForm = ({ addExpense, expenseYears }) => {
+const ExpenseForm = ({ addExpense, expenseYears, toggleFormDisplay }) => {
     const initialState = {
         title: '',
         amount: '',
@@ -55,6 +55,7 @@ const ExpenseForm = ({ addExpense, expenseYears }) => {
             </div>
             <div className="new-expense__actions">
                 <button type='submit'>Add Expense</button>
+                <button onClick={toggleFormDisplay}>Close Form</button>
             </div>
         </form>
     )
