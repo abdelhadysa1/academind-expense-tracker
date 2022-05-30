@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import './ExpenseForm.css'
 
-const ExpenseForm = () => {
+const ExpenseForm = ({ addExpense }) => {
     const initialState = {
         title: '',
         amount: '',
@@ -19,11 +19,23 @@ const ExpenseForm = () => {
         })
     }
     const handleSubmit = (e) => {
+        const { date } = input
+        const year = parseFloat(date.split('-')[0])
+        const month = parseFloat(date.split('-')[1])
+        const day = parseFloat(date.split('-')[2])
         e.preventDefault()
         setInput({
             ...initialState,
         })
-        console.log(input)
+        addExpense({
+            desc: input.title,
+            date: {
+                year,
+                month,
+                day,
+            },
+            price: input.amount,
+        })
     }
     return (
         <form onSubmit={handleSubmit}>

@@ -102,7 +102,7 @@ function App() {
 	}
 	return (
 		<>
-		 	<NewExpense />
+		 	<NewExpense addExpense={addExpense} />
 			<Expenses expenses={expenses} />
 		</>
 	);
