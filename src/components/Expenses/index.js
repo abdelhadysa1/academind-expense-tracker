@@ -15,7 +15,7 @@ export default function Expenses(props) {
 		<>
 			<div className="expenses">
 				<ExpensesFilter selected={filterYear} onChangeFilterYear={handleChangeFilterYear} expenseYears={expenseYears} />
-				{expenses.filter((expense) => expense.date.year.toString() === filterYear).map((expense) => <ExpenseItem key={expense.id} desc={expense.desc} date={expense.date} price={expense.price} />)}
+				{expenses.filter((expense) => expense.date.year.toString() === filterYear).sort((a, b) => Math.round(new Date(b.date.year, b.date.month, b.date.day).getTime() / 1000) - Math.round(new Date(a.date.year, a.date.month, a.date.day).getTime() / 1000)).map((expense) => <ExpenseItem key={expense.id} desc={expense.desc} date={expense.date} price={expense.price} />)}
 			</div>
 		</>
 	)
