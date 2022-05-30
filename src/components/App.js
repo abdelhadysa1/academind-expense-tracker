@@ -1,7 +1,8 @@
+import React, { useState } from 'react'
 import Expenses from './Expenses'
 import NewExpense from './Expenses/NewExpense';
 
-const expenses = [
+const DEFAULT_EXPENSES = [
 	{
 		id: `#${Math.round((Math.random() * 10000) + 10000)}`,
 		desc: 'Room Rent in NYC',
@@ -65,6 +66,40 @@ const expenses = [
 ]
 
 function App() {
+	const [ expenses, setExpenses ] = useState(DEFAULT_EXPENSES)
+	const addExpense = (expenseData) => {
+		const { desc, date, price } = expenseData
+		if (!desc || typeof desc !== 'string' || !date || !date.year || !date.month || !date.day
+			|| typeof date.year !== 'number' || typeof date.month !== 'number'
+			|| typeof date.day !== 'number' || typeof price !== 'string') return;
+		setExpenses((prevExpenses) => [...prevExpenses, {
+			id: `#${Math.round((Math.random() * 10000) + 10000)}`,
+			desc,
+			date,
+			price,
+		}])
+	}
+	const removeExpense = (expenseId) => {
+		if (!expenseId || typeof expenseId !== 'string') return;
+		setExpenses((prevExpenses) => prevExpenses.filter((expense) => expense.id !== expenseId))
+	}
+	const updateExpense = (expenseId, expenseData) => {
+		if (!expenseId || typeof expenseId !== 'string') return;
+		const { desc, date, price } = expenseData
+		if (!desc || typeof desc !== 'string' || !date || !date.year || !date.month || !date.day
+			|| typeof date.year !== 'number' || typeof date.month !== 'number'
+			|| typeof date.day !== 'number' || typeof price !== 'string') return;
+		setExpenses((prevExpenses) => prevExpenses.map((expense) => {
+			if (expense.id === expenseId) {
+				return {
+					id: expenseId,
+					desc,
+					date,
+					price,
+				}
+			}
+		}))
+	}
 	return (
 		<>
 		 	<NewExpense />
