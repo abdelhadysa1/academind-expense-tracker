@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import './ExpenseForm.css'
 
-const ExpenseForm = ({ addExpense }) => {
+const ExpenseForm = ({ addExpense, expenseYears }) => {
     const initialState = {
         title: '',
         amount: '',
@@ -50,7 +50,7 @@ const ExpenseForm = ({ addExpense }) => {
                 </div>
                 <div className="new-expense__control">
                     <label>Date</label>
-                    <input name='date' type="date" min={'2022-01-01'} max={'2025-12-31'} value={input.date} onChange={handleChange} />
+                    <input name='date' type="date" min={`${Math.min.apply(null, expenseYears)}-01-01`} max={`${Math.max.apply(null, expenseYears)}-01-01`} value={input.date} onChange={handleChange} />
                 </div>
             </div>
             <div className="new-expense__actions">

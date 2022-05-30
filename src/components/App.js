@@ -2,6 +2,15 @@ import React, { useState } from 'react'
 import Expenses from './Expenses'
 import NewExpense from './Expenses/NewExpense';
 
+const DEFAULT_MIN_YEAR = 2019
+const DEFAULT_ITERATION_COUNT = (new Date().getFullYear() - DEFAULT_MIN_YEAR)
+
+let expenseYears = [ DEFAULT_MIN_YEAR ]
+
+for (let i = 0; i < DEFAULT_ITERATION_COUNT; i++) {
+	expenseYears.push(expenseYears[expenseYears.length - 1] + 1)
+}
+
 const DEFAULT_EXPENSES = [
 	{
 		id: `#${Math.round((Math.random() * 10000) + 10000)}`,
@@ -102,8 +111,8 @@ function App() {
 	}
 	return (
 		<>
-		 	<NewExpense addExpense={addExpense} />
-			<Expenses expenses={expenses} />
+		 	<NewExpense expenseYears={expenseYears} addExpense={addExpense} />
+			<Expenses expenseYears={expenseYears} expenses={expenses} />
 		</>
 	);
 }
