@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import ExpensesFilter from './ExpenseFilter'
 import ExpenseItem from './ExpenseItem'
+import ExpenseChart from './ExpenseChart'
 import './index.css'
 
 export default function Expenses({ expenses, expenseYears }) {
@@ -15,6 +16,9 @@ export default function Expenses({ expenses, expenseYears }) {
 				<ExpensesFilter selected={filterYear} onChangeFilterYear={handleChangeFilterYear} expenseYears={expenseYears} />
 				{filteredList.length === 0 && (
 					<h2 className='expenses-list__fallback'>No expenses to display :(</h2>
+				)}
+				{filteredList.length > 0 && (
+					<ExpenseChart dataList={filteredList} />
 				)}
 				{filteredList.length > 0 && (
 					<ul className='expenses-list'>
