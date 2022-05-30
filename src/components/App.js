@@ -97,7 +97,7 @@ function App() {
 					date,
 					price,
 				}
-			}
+			} else return expense
 		}))
 	}
 	return (
