@@ -16,7 +16,7 @@ const DEFAULT_EXPENSES = [
 		id: `#${Math.round((Math.random() * 10000) + 10000)}`,
 		desc: 'Room Rent in NYC',
 		date: {
-			year: 2022,
+			year: 2020,
 			month: 1,
 			day: 5,
 		},
@@ -26,7 +26,7 @@ const DEFAULT_EXPENSES = [
 		id: `#${Math.round((Math.random() * 10000) + 10000)}`,
 		desc: 'Car Insurance',
 		date: {
-			year: 2022,
+			year: 2019,
 			month: 2,
 			day: 7,
 		},
@@ -46,7 +46,7 @@ const DEFAULT_EXPENSES = [
 		id: `#${Math.round((Math.random() * 10000) + 10000)}`,
 		desc: 'New Car',
 		date: {
-			year: 2023,
+			year: 2020,
 			month: 7,
 			day: 1,
 		},
@@ -56,7 +56,7 @@ const DEFAULT_EXPENSES = [
 		id: `#${Math.round((Math.random() * 10000) + 10000)}`,
 		desc: 'A new gaming PC',
 		date: {
-			year: 2024,
+			year: 2019,
 			month: 5,
 			day: 29,
 		},
@@ -66,7 +66,7 @@ const DEFAULT_EXPENSES = [
 		id: `#${Math.round((Math.random() * 10000) + 10000)}`,
 		desc: 'Traveling abroad',
 		date: {
-			year: 2025,
+			year: 2020,
 			month: 9,
 			day: 4,
 		},
